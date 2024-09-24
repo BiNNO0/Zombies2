@@ -4,6 +4,6 @@ from load_images import *
 anchow, altow = 480, 360
 
 #personaje
-vel = 5
-
+vel = 2
+z_vel = 1
 

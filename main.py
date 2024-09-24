@@ -1,4 +1,4 @@
-import pygame, const, load_images
+import pygame, const, load_images 
 
 pygame.init()
 menu = pygame.display.set_mode((const.anchow, const.altow))
