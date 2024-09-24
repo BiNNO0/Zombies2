@@ -1,23 +1,46 @@
-import pygame, load_images, const
+import pygame, const, math
+from load_images import *
 
 pygame.init()
-menu = pygame.display.set_mode((const.anchow, const.altow))
+game = pygame.display.set_mode((const.anchow, const.altow))
 pygame.display.set_caption("Main")
 
-corriendo = True
+#set vars
+life = 3
 
-while corriendo:
+
+
+
+
+
+
+running = True
+
+while running:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
-            corriendo = False
-       
-
-
+            running = False
+    
+    key = pygame.key.get_pressed()
+    
+    rect_player = idle.get_rect(center=(240, 180))  
+    
+    player_x, player_y = rect_player.center
+    
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    
+    angulo = math.degrees(math.atan2(mouse_y - player_y, mouse_x - player_x))
+    
+    imagen_rotada = pygame.transform.rotate(idle, -angulo)
+    
+    rect_imagen_rotada = imagen_rotada.get_rect(center=rect_player.center)
+    
 
 
     
-    menu.fill((100,100,100))
-    menu.blit(load_images.bg,[-10,-25])
+    game.fill((100,100,100))
+    game.blit(bg,[-10,-25])
+    game.blit(imagen_rotada, rect_imagen_rotada.topleft)
     pygame.display.flip()
 
 pygame.quit()

@@ -4,4 +4,6 @@ from load_images import *
 anchow, altow = 480, 360
 
 #personaje
-w_player , h_player = idle.get_size()
+vel = 5
+
+
